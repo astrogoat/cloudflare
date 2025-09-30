@@ -2,15 +2,15 @@
 
 namespace Astrogoat\Cloudflare;
 
+use Astrogoat\Cloudflare\Settings\CloudflareSettings;
 use Closure;
 use Helix\Lego\Apps\App;
+use Helix\Lego\Apps\AppPackageServiceProvider;
+use Helix\Lego\Apps\Services\IncludeAuthRegisterViews;
+use Helix\Lego\Http\Middleware\HasValidCaptcha;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use Helix\Lego\Apps\AppPackageServiceProvider;
 use Spatie\LaravelPackageTools\Package;
-use Helix\Lego\Http\Middleware\HasValidCaptcha;
-use Helix\Lego\Apps\Services\IncludeAuthRegisterViews;
-use Astrogoat\Cloudflare\Settings\CloudflareSettings;
 
 class CloudflareServiceProvider extends AppPackageServiceProvider
 {
@@ -44,7 +44,9 @@ class CloudflareServiceProvider extends AppPackageServiceProvider
             ->migrations([
                 __DIR__ . '/../database/migrations',
                 __DIR__ . '/../database/migrations/settings',
-            ])->includeAuthRegisterViews(function (IncludeAuthRegisterViews $registerViews) {;
+            ])->includeAuthRegisterViews(function (IncludeAuthRegisterViews $registerViews) {
+                ;
+
                 return $registerViews
                     ->addToHead('cloudflare::script')
                     ->addToCaptcha('cloudflare::captcha');

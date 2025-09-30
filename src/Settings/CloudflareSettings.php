@@ -7,8 +7,8 @@ use Illuminate\Validation\Rule;
 
 class CloudflareSettings extends AppSettings
 {
-     public string $site_key;
-     public string $site_secret;
+    public string $site_key;
+    public string $site_secret;
 
     public function rules(): array
     {

@@ -2,9 +2,9 @@
 
 namespace Astrogoat\Cloudflare\Tests;
 
+use Astrogoat\Cloudflare\CloudflareServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Astrogoat\Cloudflare\CloudflareServiceProvider;
 
 class TestCase extends Orchestra
 {
