@@ -1,19 +1,19 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Astrogoat\Cloudflare;
 
 use Helix\Lego\Apps\App;
 use Helix\Lego\Apps\AppPackageServiceProvider;
 use Spatie\LaravelPackageTools\Package;
-use VendorName\Skeleton\Settings\SkeletonSettings;
+use Astrogoat\Cloudflare\Settings\CloudflareSettings;
 
-class SkeletonServiceProvider extends AppPackageServiceProvider
+class CloudflareServiceProvider extends AppPackageServiceProvider
 {
     public function registerApp(App $app): App
     {
         return $app
-            ->name('skeleton')
-            ->settings(SkeletonSettings::class)
+            ->name('cloudflare')
+            ->settings(CloudflareSettings::class)
             ->migrations([
                 __DIR__ . '/../database/migrations',
                 __DIR__ . '/../database/migrations/settings',
@@ -24,6 +24,6 @@ class SkeletonServiceProvider extends AppPackageServiceProvider
 
     public function configurePackage(Package $package): void
     {
-        $package->name('skeleton')->hasConfigFile()->hasViews();
+        $package->name('cloudflare')->hasConfigFile()->hasViews();
     }
 }
