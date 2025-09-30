@@ -7,13 +7,20 @@ use Illuminate\Validation\Rule;
 
 class CloudflareSettings extends AppSettings
 {
-    // public string $url;
+     public string $site_key;
+     public string $site_secret;
 
     public function rules(): array
     {
         return [
-//            'url' => Rule::requiredIf($this->enabled === true), // Example, modify to fit your need.
+            'site_key' => Rule::requiredIf($this->enabled === true),
+            'site_secret' => Rule::requiredIf($this->enabled === true),
         ];
+    }
+
+    public static function encrypted(): array
+    {
+        return ['site_secret'];
     }
 
     public function description(): string
